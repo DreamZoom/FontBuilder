@@ -1,6 +1,6 @@
-﻿namespace FontBuilder
+﻿namespace FontBuilder.UI
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,8 @@
             this.cmbFontFamily = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCharHeight = new System.Windows.Forms.NumericUpDown();
+            this.txtCharWidth = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,20 +49,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.fontPreview = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblBackgroundColor = new System.Windows.Forms.Label();
             this.lblForegroundColor = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCharWidth = new System.Windows.Forms.NumericUpDown();
-            this.txtCharHeight = new System.Windows.Forms.NumericUpDown();
+            this.lblBackgroundColor = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharWidth)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCharHeight)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbFontFamily
@@ -96,6 +96,50 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Font Size";
+            // 
+            // txtCharHeight
+            // 
+            this.txtCharHeight.Location = new System.Drawing.Point(53, 52);
+            this.txtCharHeight.Maximum = new decimal(new int[] {
+            2046,
+            0,
+            0,
+            0});
+            this.txtCharHeight.Minimum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.txtCharHeight.Name = "txtCharHeight";
+            this.txtCharHeight.Size = new System.Drawing.Size(79, 23);
+            this.txtCharHeight.TabIndex = 7;
+            this.txtCharHeight.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            // 
+            // txtCharWidth
+            // 
+            this.txtCharWidth.Location = new System.Drawing.Point(53, 21);
+            this.txtCharWidth.Maximum = new decimal(new int[] {
+            2046,
+            0,
+            0,
+            0});
+            this.txtCharWidth.Minimum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.txtCharWidth.Name = "txtCharWidth";
+            this.txtCharWidth.Size = new System.Drawing.Size(79, 23);
+            this.txtCharWidth.TabIndex = 6;
+            this.txtCharWidth.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
             // 
             // label5
             // 
@@ -234,6 +278,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Save as...";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2Click);
             // 
             // fontPreview
             // 
@@ -259,26 +304,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Color";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 16);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Background Color";
-            // 
-            // lblBackgroundColor
-            // 
-            this.lblBackgroundColor.BackColor = System.Drawing.Color.White;
-            this.lblBackgroundColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblBackgroundColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblBackgroundColor.Location = new System.Drawing.Point(135, 19);
-            this.lblBackgroundColor.Name = "lblBackgroundColor";
-            this.lblBackgroundColor.Size = new System.Drawing.Size(25, 25);
-            this.lblBackgroundColor.TabIndex = 1;
-            this.lblBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor);
-            // 
             // lblForegroundColor
             // 
             this.lblForegroundColor.BackColor = System.Drawing.Color.White;
@@ -299,51 +324,27 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Foreground Color";
             // 
-            // txtCharWidth
+            // lblBackgroundColor
             // 
-            this.txtCharWidth.Location = new System.Drawing.Point(53, 21);
-            this.txtCharWidth.Maximum = new decimal(new int[] {
-            2046,
-            0,
-            0,
-            0});
-            this.txtCharWidth.Minimum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            this.txtCharWidth.Name = "txtCharWidth";
-            this.txtCharWidth.Size = new System.Drawing.Size(79, 23);
-            this.txtCharWidth.TabIndex = 6;
-            this.txtCharWidth.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
+            this.lblBackgroundColor.BackColor = System.Drawing.Color.White;
+            this.lblBackgroundColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBackgroundColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblBackgroundColor.Location = new System.Drawing.Point(135, 19);
+            this.lblBackgroundColor.Name = "lblBackgroundColor";
+            this.lblBackgroundColor.Size = new System.Drawing.Size(25, 25);
+            this.lblBackgroundColor.TabIndex = 1;
+            this.lblBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor);
             // 
-            // txtCharHeight
+            // label8
             // 
-            this.txtCharHeight.Location = new System.Drawing.Point(53, 52);
-            this.txtCharHeight.Maximum = new decimal(new int[] {
-            2046,
-            0,
-            0,
-            0});
-            this.txtCharHeight.Minimum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            this.txtCharHeight.Name = "txtCharHeight";
-            this.txtCharHeight.Size = new System.Drawing.Size(79, 23);
-            this.txtCharHeight.TabIndex = 7;
-            this.txtCharHeight.Value = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Background Color";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -360,11 +361,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Font Builder";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCharWidth)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -373,8 +376,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCharHeight)).EndInit();
             this.ResumeLayout(false);
 
         }

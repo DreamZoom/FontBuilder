@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FontBuilder
+﻿namespace FontBuilder.Core
 {
     public enum PrefinedListType
     {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 
-namespace FontBuilder
+namespace FontBuilder.Core
 {
     public class Helper
     {

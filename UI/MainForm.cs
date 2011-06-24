@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Text;
 using System.Windows.Forms;
+using FontBuilder.Core;
 
-namespace FontBuilder
+namespace FontBuilder.UI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -120,6 +118,12 @@ namespace FontBuilder
 
             if ( colorDialog.ShowDialog() == DialogResult.OK )
                 picker.BackColor = colorDialog.Color;
+        }
+
+        private void Button2Click(object sender, EventArgs e)
+        {
+            var ew = new ExportWindow {Configuration = ExtractFontConfiguration()};
+            ew.ShowDialog();
         }
     }
 }

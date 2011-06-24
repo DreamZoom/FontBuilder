@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Text;
 
-namespace FontBuilder
+namespace FontBuilder.Core
 {
     public class FontConfiguration
     {
@@ -65,24 +63,6 @@ namespace FontBuilder
             if ( ShowGridLines )
             {
                 var topCols = currentRowHeight + (currentRowWidth == 0 ? 0 : 1);
-                currentRowHeight = 0;
-                currentRowWidth = 0;
-
-                for (int i = 0; i < Characters.Count; i++)
-                {
-                    if (currentRowWidth >= ItemsPerRow)
-                    {
-                        currentRowWidth = 0;
-                        currentRowHeight++;
-                    }
-
-                    var x = currentRowWidth * CharSize.Width;
-                    var y = currentRowHeight * CharSize.Height;
-                    
-                    
-
-                    currentRowWidth++;
-                }
 
                 for (int i = 0; i < ItemsPerRow; i++)
                 {
@@ -102,7 +82,6 @@ namespace FontBuilder
                 graphics.DrawRectangle(new Pen(Color.Black, 1), 0, 0, bitmapSz.Width - 1, bitmapSz.Height - 1);
             }
             
-
             graphics.Flush();
             return bm;
         }
@@ -136,6 +115,13 @@ namespace FontBuilder
                 amountRows++;
 
             return new Size( ItemsPerRow * CharSize.Width, amountRows * CharSize.Height);
+        }
+
+        private void SaveAs()
+        {
+            var bmp = ExportAsBitmap();
+
+            
         }
     }
 }
