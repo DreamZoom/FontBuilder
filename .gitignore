@@ -1,0 +1,6 @@
+# Ignore generated folders by Visual Studio
+bin/*
+obj/*
+
+# Ignore ReSharper related files
+*ReSharper*
